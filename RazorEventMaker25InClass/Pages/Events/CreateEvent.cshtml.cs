@@ -11,6 +11,7 @@ namespace RazorEventMaker25InClass.Pages.Events
 
 
         //Den nye event hentes ind i NewEvent
+        [BindProperty]
         public Event NewEvent { get; set; }
         public CreateEventModel(IEventRepository eventRepository  )
         {
@@ -23,9 +24,10 @@ namespace RazorEventMaker25InClass.Pages.Events
         }
 
         //Når der skal ændres noget
-        public void OnPost()
+        public IActionResult OnPost()
         {
             _repo.AddEvent(NewEvent);
+            return RedirectToPage("Index");
         }
     }
 }

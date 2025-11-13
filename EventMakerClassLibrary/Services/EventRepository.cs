@@ -24,7 +24,20 @@ namespace EventMakerClassLibrary.Services
         public void AddEvent(Event ev)
         {
             //TODO
-            _events.Add(ev);
+            List<int> eventIds = new List<int>();
+            foreach(Event e in _events)
+            {
+                eventIds.Add(e.Id);
+            }
+            if( eventIds.Count != 0)
+            {
+                ev.Id = eventIds.Max() + 1;
+            }
+            else
+            {
+                ev.Id = 1; 
+            }
+             _events.Add(ev);
         }
 
         public void DeleteEvent(Event ev)
