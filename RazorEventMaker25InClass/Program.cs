@@ -1,8 +1,12 @@
+using EventMakerClassLibrary.Interfaces;
+using EventMakerClassLibrary.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+//Dependency inject - skaber et enkelt objekt af EventRepository
+builder.Services.AddSingleton<IEventRepository, EventRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

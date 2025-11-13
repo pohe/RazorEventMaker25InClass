@@ -1,0 +1,38 @@
+﻿@page
+@model RazorEventMaker25InClass.Pages.Events.IndexModel
+@{
+    ViewData["Title"] = "List of event";
+}
+
+<h1>List of events</h1>
+<h2>There is @Model.Events.Count  number of events</h2>
+
+@* Der skal bygges en table til  præsentation af alle events i event repositoriet *@
+
+<table  class="table">
+    <thead>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Place</th>
+            <th>DateTime</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.Events)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.City</td>
+                <td>@item.DateTime</td>
+
+            </tr>
+
+        }
+
+    </tbody>
+</table>
