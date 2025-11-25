@@ -42,7 +42,7 @@ namespace EventMakerClassLibrary.Services
 
         public void DeleteEvent(Event ev)
         {
-            throw new NotImplementedException();
+            _events.Remove(GetEvent(ev.Id));
         }
 
         public List<Event> GetAllEvents()

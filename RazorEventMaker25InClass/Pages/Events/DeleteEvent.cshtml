@@ -1,14 +1,14 @@
 ﻿@page
-@model RazorEventMaker25InClass.Pages.Events.EditEventModel
+@model RazorEventMaker25InClass.Pages.Events.DeleteEventModel
 @{
-    ViewData["Title"] = "EditEvent";
+    ViewData["Title"] = "Delete event";
 }
-<h1>Edit Event</h1>
+<h1>Delete Event</h1>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
 
-            <input type="hidden" asp-for="@Model.Event.Id" /> 
+            <input type="hidden" asp-for="@Model.Event.Id" />
             <div class="form-group">
                 <label asp-for="@Model.Event.Name" class="control-label"></label>
                 <input asp-for="@Model.Event.Name" class="form-control" />
@@ -19,22 +19,19 @@
                 <input asp-for="@Model.Event.Description" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Event.City" class="control-label"></label>
-                <input asp-for="@Model.Event.City" class="form-control" />
-
-            </div>
-            <div class="form-group">
                 <label asp-for="@Model.Event.DateTime" class="control-label"></label>
                 <input asp-for="@Model.Event.DateTime" class="form-control" />
 
             </div>
-            <div class="formgroup">
-                <input type="submit" asp-page-handler="Edit" value="Update" class="btn btn-primary" />
-            </div>
-            <div class="formgroup">
-                <input type="submit" asp-page-handler="Delete" value="Delete" class="btn btn-danger" />
+            <div class="form-group">
+                <label asp-for="@Model.Event.City" class="control-label"></label>
+                <input asp-for="@Model.Event.City" class="form-control" />
+
             </div>
 
+            <div class="formgroup">
+                <input type="submit" value="Delete" class="btn btn-primary" />
+            </div>
 
         </form>
 
@@ -44,5 +41,6 @@
         <a asp-page="Index">Back to List</a>
     </div>
 </div>
+
 
 

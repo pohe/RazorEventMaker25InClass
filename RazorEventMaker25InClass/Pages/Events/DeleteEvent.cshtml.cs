@@ -5,16 +5,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RazorEventMaker25InClass.Pages.Events
 {
-    public class EditEventModel : PageModel
+    public class DeleteEventModel : PageModel
     {
+        private IEventRepository _repo;
+
         [BindProperty]
         public Event Event { get; set; }
 
-        private IEventRepository _repo;
-        public EditEventModel(IEventRepository eventRepository)
+        public DeleteEventModel(IEventRepository eventRepository)
         {
-            _repo = eventRepository;
+           _repo = eventRepository;
         }
+
         public void OnGet(int id)
         {
             Event = _repo.GetEvent(id);
@@ -22,14 +24,10 @@ namespace RazorEventMaker25InClass.Pages.Events
 
         public IActionResult OnPost()
         {
-            _repo.UpdateEvent(Event);
-            return RedirectToPage("Index");
-        }
 
-        public IActionResult OnPostDelete()
-        {
             _repo.DeleteEvent(Event);
             return RedirectToPage("Index");
         }
+
     }
 }
