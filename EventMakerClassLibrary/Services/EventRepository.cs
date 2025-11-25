@@ -52,12 +52,23 @@ namespace EventMakerClassLibrary.Services
 
         public Event GetEvent(int id)
         {
-            throw new NotImplementedException();
+            foreach (Event e in _events)
+            {
+                if (e.Id == id)
+                {
+                    return e;
+                }
+            }
+            return new Event();
         }
 
         public void UpdateEvent(Event ev)
         {
-            throw new NotImplementedException();
+            Event eventToUpdate = GetEvent(ev.Id);
+            eventToUpdate.City = ev.City;
+            eventToUpdate.Name = ev.Name;
+            eventToUpdate.DateTime = ev.DateTime;
+            eventToUpdate.Description = ev.Description;
         }
 
         private void PopulateEventsWithTestData()
